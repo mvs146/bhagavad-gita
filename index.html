@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Complete Bhagavad Gita - All 18 Chapters, 700 Shlokas, 90+ Languages, Male & Female Voice. Developer: Muppuri Venkata Suresh. Owners: Muppuri Chamber & Palla Venkata Naga Adithya">
+<meta name="keywords" content="Bhagavad Gita, Gita, Krishna, Sanskrit, Shloka, Hindu Scripture, Yoga, Meditation, Karma, Dharma">
+<meta property="og:title" content="Bhagavad Gita - World's Complete Digital Edition">
+<meta property="og:description" content="All 700 Shlokas, 18 Chapters, 90+ Languages, Male & Female Voice with Psychology, Science & Mythology insights">
+<title>Bhagavad Gita - Complete Sacred Scripture | Muppuri Venkata Suresh</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:#07000f;color:#f0e0c0;font-family:'Segoe UI',Arial,sans-serif;min-height:100vh}
+:root{--gold:#FFD700;--orange:#FF8C00;--border:rgba(255,215,0,0.18);--card:rgba(255,215,0,0.04)}
+
+/* PARTICLES */
+#particles{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:hidden}
+.star{position:absolute;border-radius:50%;background:#FFD700;animation:twinkle 3s infinite}
+@keyframes twinkle{0%,100%{opacity:0.2;transform:scale(1)}50%{opacity:0.8;transform:scale(1.5)}}
+
+/* LAYOUT */
+.topbar{position:relative;z-index:10;background:rgba(0,0,0,0.9);border-bottom:1px solid var(--border);padding:10px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.brand{display:flex;align-items:center;gap:12px}
+.om-icon{font-size:32px;color:var(--gold);animation:omglow 2s infinite}
+@keyframes omglow{0%,100%{text-shadow:0 0 15px #FF8C00,0 0 30px #FF4500}50%{text-shadow:0 0 40px #FFD700,0 0 80px #FF8C00}}
+.brand-name{font-size:17px;font-weight:700;letter-spacing:3px;color:var(--gold)}
+.brand-sub{font-size:9px;letter-spacing:2px;color:#c9a96e;text-transform:uppercase}
+.top-controls{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+.vbtn{padding:5px 14px;border-radius:6px;font-size:11px;letter-spacing:1px;cursor:pointer;border:1px solid var(--border);background:transparent;color:#c9a96e;transition:all 0.3s;font-family:inherit}
+.vbtn.active{background:rgba(255,140,0,0.35);border-color:var(--gold);color:var(--gold)}
+select,button{background:rgba(255,215,0,0.07);border:1px solid var(--border);color:#f0e0c0;padding:5px 10px;border-radius:6px;font-size:12px;cursor:pointer;font-family:inherit;transition:all 0.3s}
+select:hover,button:hover{background:rgba(255,140,0,0.2);border-color:var(--gold);color:var(--gold)}
+
+/* HERO */
+.hero{position:relative;z-index:2;text-align:center;padding:28px 20px 18px;border-bottom:1px solid var(--border)}
+.hero-om{font-size:56px;color:var(--gold);display:block;margin-bottom:6px;animation:omglow 2s infinite}
+.hero-title{font-size:clamp(22px,5vw,42px);font-weight:700;letter-spacing:5px;color:var(--gold);text-transform:uppercase}
+.hero-skt{font-size:26px;color:var(--gold);margin:6px 0;opacity:0.9}
+.hero-sub{font-size:10px;letter-spacing:3px;color:#c9a96e;text-transform:uppercase;margin-top:4px}
+.stats{display:flex;justify-content:center;gap:28px;flex-wrap:wrap;margin:14px 0 8px}
+.stat-n{font-size:24px;font-weight:700;color:var(--gold)}.stat-l{font-size:9px;color:#c9a96e;letter-spacing:2px;text-transform:uppercase}
+.credits-bar{font-size:10px;color:#a08050;letter-spacing:1px;line-height:2;margin-top:6px}
+.credits-bar span{color:var(--orange);font-weight:600}
+
+/* ENERGY PILLS */
+.energy-bar{position:relative;z-index:2;padding:10px 20px;display:flex;align-items:center;gap:10px;justify-content:center;flex-wrap:wrap;border-bottom:1px solid var(--border)}
+.epill{padding:4px 14px;border-radius:20px;font-size:10px;letter-spacing:1px;text-transform:uppercase;border:1px solid;animation:ppulse 3s ease-in-out infinite}
+@keyframes ppulse{0%,100%{opacity:0.7}50%{opacity:1}}
+.ep1{color:#FF4500;border-color:#FF4500;background:rgba(255,69,0,0.08);animation-delay:0s}
+.ep2{color:#FF8C00;border-color:#FF8C00;background:rgba(255,140,0,0.08);animation-delay:0.5s}
+.ep3{color:#FFD700;border-color:#FFD700;background:rgba(255,215,0,0.08);animation-delay:1s}
+.ep4{color:#40E0D0;border-color:#40E0D0;background:rgba(64,224,208,0.08);animation-delay:1.5s}
+.ep5{color:#DA70D6;border-color:#DA70D6;background:rgba(218,112,214,0.08);animation-delay:2s}
+
+/* LANGUAGE */
+.lang-bar{position:relative;z-index:2;padding:8px 20px;background:rgba(0,0,0,0.5);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.lang-lbl{font-size:10px;letter-spacing:2px;color:#c9a96e;text-transform:uppercase;white-space:nowrap}
+
+/* CHAPTER NAV */
+.ch-nav{position:relative;z-index:2;padding:10px 20px;border-bottom:1px solid var(--border);background:rgba(0,0,0,0.3)}
+.ch-nav-lbl{font-size:9px;letter-spacing:3px;color:#c9a96e;text-transform:uppercase;text-align:center;margin-bottom:8px}
+.ch-grid{display:grid;grid-template-columns:repeat(9,1fr);gap:4px;max-width:500px;margin:0 auto}
+.cb{background:rgba(255,215,0,0.05);border:1px solid rgba(255,215,0,0.15);color:#c9a96e;font-size:11px;padding:7px 2px;cursor:pointer;border-radius:5px;text-align:center;transition:all 0.3s;font-family:inherit}
+.cb:hover,.cb.active{background:rgba(255,140,0,0.3);border-color:var(--gold);color:var(--gold);box-shadow:0 0 10px rgba(255,140,0,0.3)}
+.progress-wrap{margin-top:8px;background:rgba(255,215,0,0.08);height:3px;border-radius:2px;overflow:hidden;max-width:500px;margin-left:auto;margin-right:auto}
+.progress-bar{height:100%;background:linear-gradient(90deg,#FF4500,#FF8C00,#FFD700);transition:width 0.5s;border-radius:2px}
+
+/* MAIN */
+.main{position:relative;z-index:2;max-width:900px;margin:0 auto;padding:20px 16px 40px}
+
+/* CHAPTER HEADER */
+.ch-header{text-align:center;padding:22px;background:var(--card);border:1px solid var(--border);border-radius:12px;margin-bottom:18px;position:relative;overflow:hidden}
+.ch-header::before{content:'';position:absolute;top:0;left:-100%;right:-100%;height:2px;background:linear-gradient(90deg,transparent,#FFD700,#FF8C00,#FFD700,transparent);animation:lineslide 3s linear infinite}
+@keyframes lineslide{0%{transform:translateX(-50%)}100%{transform:translateX(50%)}}
+.ch-num-lbl{font-size:10px;letter-spacing:3px;color:var(--orange);text-transform:uppercase}
+.ch-skt-name{font-size:24px;color:var(--gold);margin:6px 0;text-shadow:0 0 20px rgba(255,215,0,0.3)}
+.ch-eng-name{font-size:16px;color:#f0e0c0;letter-spacing:2px}
+.ch-description{font-size:13px;color:#c9a96e;font-style:italic;margin-top:10px;line-height:1.8}
+.ch-shloka-count{font-size:10px;color:var(--orange);margin-top:8px;letter-spacing:2px}
+
+/* PLAYER */
+.player{background:rgba(0,0,0,0.7);border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:18px}
+.player-top{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.player-id{font-size:11px;letter-spacing:2px;color:var(--orange);text-transform:uppercase}
+.player-btns{display:flex;gap:8px;margin-left:auto;align-items:center}
+.pbtn{width:38px;height:38px;border-radius:50%;border:1px solid var(--border);background:rgba(255,215,0,0.1);color:var(--gold);font-size:14px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.3s;font-family:inherit}
+.pbtn:hover{background:rgba(255,140,0,0.4);border-color:var(--gold)}
+.pbtn.main-play{width:46px;height:46px;font-size:20px}
+.word-display{background:rgba(255,215,0,0.05);border:1px solid rgba(255,215,0,0.1);border-radius:8px;padding:12px;min-height:48px;margin-bottom:8px;font-size:13px;line-height:2.2}
+.wh{display:inline-block;padding:2px 6px;border-radius:4px;margin:2px;cursor:pointer;transition:all 0.3s;font-size:14px;color:#f0e0c0}
+.wh.active{background:rgba(255,140,0,0.5);color:var(--gold);font-weight:700;transform:scale(1.15)}
+.word-popup{background:rgba(10,0,5,0.97);border:1px solid var(--gold);border-radius:6px;padding:8px 14px;font-size:13px;color:#FFD700;margin-top:6px;display:none}
+
+/* SHLOKA CARDS */
+.shloka-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:20px;margin-bottom:16px;position:relative;overflow:hidden;transition:all 0.4s}
+.shloka-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--gold),var(--orange));opacity:0.7}
+.shloka-card.active-s{border-color:rgba(255,215,0,0.5);background:rgba(255,140,0,0.06)}
+.sk-num{font-size:10px;letter-spacing:3px;color:var(--orange);text-transform:uppercase;margin-bottom:10px}
+.sk-skt{font-size:16px;color:var(--gold);line-height:2;margin-bottom:10px;font-weight:600;text-shadow:0 0 10px rgba(255,215,0,0.2)}
+.sk-rom{font-size:12px;color:#a08060;font-style:italic;margin-bottom:12px;line-height:1.8}
+.tabs{display:flex;gap:4px;margin-bottom:12px;flex-wrap:wrap}
+.tab{padding:5px 12px;border-radius:20px;font-size:11px;letter-spacing:1px;cursor:pointer;border:1px solid rgba(255,215,0,0.2);background:transparent;color:#c9a96e;transition:all 0.3s;text-transform:uppercase;font-family:inherit}
+.tab:hover,.tab.active{background:rgba(255,140,0,0.25);border-color:var(--gold);color:var(--gold)}
+.tab-content{font-size:13px;line-height:1.9;color:#e8d5b0}
+.insight-box{background:rgba(255,140,0,0.07);border-left:3px solid var(--orange);border-radius:0 8px 8px 0;padding:10px 14px;margin-top:10px;font-size:13px;color:var(--orange);font-style:italic}
+.word-grid{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.wcard{background:rgba(255,215,0,0.06);border:1px solid rgba(255,215,0,0.15);border-radius:8px;padding:6px 12px;font-size:11px}
+.wcard .w{color:var(--gold);font-weight:600;display:block;margin-bottom:2px}
+.wcard .m{color:#c9a96e}
+
+/* DONATION */
+.donation{background:linear-gradient(135deg,rgba(255,140,0,0.08),rgba(255,215,0,0.04));border:2px solid rgba(255,215,0,0.25);border-radius:14px;padding:26px;margin-bottom:20px;text-align:center;position:relative;overflow:hidden}
+.donation::before{content:'ॐ';position:absolute;top:-15px;right:20px;font-size:100px;color:rgba(255,215,0,0.04);line-height:1;pointer-events:none}
+.don-title{font-size:18px;font-weight:700;color:var(--gold);letter-spacing:2px;margin-bottom:6px}
+.don-sub{font-size:13px;color:#c9a96e;margin-bottom:18px;line-height:1.8}
+.don-amounts{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+.amt-btn{padding:7px 18px;border-radius:20px;border:1px solid rgba(255,215,0,0.25);background:transparent;color:#c9a96e;font-size:13px;cursor:pointer;transition:all 0.3s;font-family:inherit}
+.amt-btn:hover,.amt-btn.sel{background:rgba(255,140,0,0.25);border-color:var(--gold);color:var(--gold);font-weight:700}
+#customAmt{background:rgba(255,215,0,0.07);border:1px solid rgba(255,215,0,0.25);color:#f0e0c0;padding:7px 14px;border-radius:8px;font-size:14px;width:130px;text-align:center;font-family:inherit;margin-bottom:18px;display:none}
+.pay-methods{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:540px;margin:0 auto 16px}
+@media(max-width:480px){.pay-methods{grid-template-columns:1fr 1fr}}
+.pay-btn{padding:16px 10px;border-radius:12px;border:1px solid;font-size:12px;font-weight:700;cursor:pointer;letter-spacing:1px;transition:all 0.3s;font-family:inherit;text-align:center}
+.pay-btn:hover{transform:translateY(-3px)}
+.btn-paypal{background:rgba(0,48,135,0.2);border-color:rgba(0,112,243,0.5);color:#5bb8ff}
+.btn-paypal:hover{background:rgba(0,48,135,0.4);border-color:#5bb8ff;box-shadow:0 6px 24px rgba(0,112,243,0.3)}
+.btn-upi{background:rgba(50,150,0,0.15);border-color:rgba(80,200,0,0.4);color:#7de040}
+.btn-upi:hover{background:rgba(50,150,0,0.3);border-color:#7de040;box-shadow:0 6px 24px rgba(80,200,0,0.3)}
+.btn-razorpay{background:rgba(0,100,220,0.15);border-color:rgba(30,144,255,0.4);color:#60b8ff}
+.btn-razorpay:hover{background:rgba(0,100,220,0.3);border-color:#60b8ff;box-shadow:0 6px 24px rgba(30,144,255,0.3)}
+.upi-box{display:none;background:rgba(0,0,0,0.6);border:1px solid rgba(80,200,0,0.35);border-radius:10px;padding:16px;margin:12px auto;max-width:340px}
+.upi-id{font-size:18px;color:#7de040;font-weight:700;letter-spacing:2px;margin:8px 0;word-break:break-all}
+.copy-btn{padding:5px 16px;border-radius:5px;border:1px solid rgba(80,200,0,0.4);background:rgba(80,200,0,0.12);color:#7de040;font-size:12px;cursor:pointer;margin-top:6px;font-family:inherit;transition:all 0.3s}
+.copy-btn:hover{background:rgba(80,200,0,0.3)}
+.thanks-msg{display:none;background:rgba(255,215,0,0.08);border:1px solid var(--gold);border-radius:10px;padding:14px;margin-top:12px;font-size:14px;color:var(--gold);line-height:1.8}
+.don-info{font-size:11px;color:#a08050;line-height:2;margin-top:8px}
+.don-info span{color:var(--orange);font-weight:600}
+
+/* NAV ARROWS */
+.nav-arrows{display:flex;gap:12px;margin-top:20px}
+.narr{flex:1;padding:12px;background:rgba(255,140,0,0.08);border:1px solid var(--border);color:var(--gold);font-size:12px;letter-spacing:2px;cursor:pointer;border-radius:8px;transition:all 0.3s;text-transform:uppercase;font-family:inherit}
+.narr:hover{background:rgba(255,140,0,0.22);border-color:var(--gold);box-shadow:0 0 16px rgba(255,140,0,0.2)}
+
+/* FOOTER */
+.footer{position:relative;z-index:2;border-top:1px solid var(--border);padding:20px;text-align:center;background:rgba(0,0,0,0.7)}
+.footer-text{font-size:11px;color:#c9a96e;line-height:2.2}
+.footer-text .hl{color:var(--gold);font-weight:700}
+</style>
+</head>
+<body>
+
+<!-- STAR PARTICLES -->
+<div id="particles"></div>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="brand">
+    <span class="om-icon">ॐ</span>
+    <div>
+      <div class="brand-name">Bhagavad Gita</div>
+      <div class="brand-sub">World's Complete Digital Sacred App</div>
+    </div>
+  </div>
+  <div class="top-controls">
+    <button class="vbtn active" id="vMale" onclick="setVoice('male')">♂ Male</button>
+    <button class="vbtn" id="vFemale" onclick="setVoice('female')">♀ Female</button>
+    <select id="speedSel" onchange="setSpeed(this.value)">
+      <option value="0.6">🐢 Slow</option>
+      <option value="1" selected>▶ Normal</option>
+      <option value="1.3">⚡ Fast</option>
+      <option value="0.5">🧘 Meditative</option>
+    </select>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <span class="hero-om">ॐ</span>
+  <div class="hero-title">Bhagavad Gita</div>
+  <div class="hero-skt">भगवद्गीता</div>
+  <div class="hero-sub">The Song of God · Complete Sacred Scripture · All World Languages</div>
+  <div class="stats">
+    <div class="stat"><div class="stat-n">18</div><div class="stat-l">Chapters</div></div>
+    <div class="stat"><div class="stat-n">700</div><div class="stat-l">Shlokas</div></div>
+    <div class="stat"><div class="stat-n">90+</div><div class="stat-l">Languages</div></div>
+    <div class="stat"><div class="stat-n">5</div><div class="stat-l">Interpretations</div></div>
+    <div class="stat"><div class="stat-n">∞</div><div class="stat-l">Wisdom</div></div>
+  </div>
+  <div class="credits-bar">
+    Developer: <span>Muppuri Venkata Suresh</span> &nbsp;|&nbsp;
+    Owners: <span>Muppuri Chamber</span> &amp; <span>Palla Venkata Naga Adithya</span>
+  </div>
+</div>
+
+<!-- ENERGY PILLS -->
+<div class="energy-bar">
+  <span style="font-size:10px;letter-spacing:2px;color:#c9a96e;text-transform:uppercase">You will feel:</span>
+  <span class="epill ep1">⚡ High Energy</span>
+  <span class="epill ep2">🔥 Motivated</span>
+  <span class="epill ep3">✨ Enlightened</span>
+  <span class="epill ep4">🌊 Peaceful</span>
+  <span class="epill ep5">🌸 Divine</span>
+</div>
+
+<!-- LANGUAGE BAR -->
+<div class="lang-bar">
+  <span class="lang-lbl">🌍 Language:</span>
+  <select id="langSelect" onchange="changeLang(this.value)" style="flex:1;max-width:320px">
+    <option value="en">English</option>
+    <option value="hi">Hindi — हिन्दी</option>
+    <option value="te">Telugu — తెలుగు</option>
+    <option value="ta">Tamil — தமிழ்</option>
+    <option value="kn">Kannada — ಕನ್ನಡ</option>
+    <option value="ml">Malayalam — മലയാളം</option>
+    <option value="bn">Bengali — বাংলা</option>
+    <option value="mr">Marathi — मराठी</option>
+    <option value="gu">Gujarati — ગુજરાતી</option>
+    <option value="pa">Punjabi — ਪੰਜਾਬੀ</option>
+    <option value="sa">Sanskrit — संस्कृत</option>
+    <option value="ur">Urdu — اردو</option>
+    <option value="or">Odia — ଓଡ଼ିଆ</option>
+    <option value="ne">Nepali — नेपाली</option>
+    <option value="si">Sinhala — සිංහල</option>
+    <option value="es">Español</option>
+    <option value="fr">Français</option>
+    <option value="de">Deutsch</option>
+    <option value="it">Italiano</option>
+    <option value="pt">Português</option>
+    <option value="ru">Русский</option>
+    <option value="zh">中文</option>
+    <option value="ja">日本語</option>
+    <option value="ko">한국어</option>
+    <option value="ar">العربية</option>
+    <option value="tr">Türkçe</option>
+    <option value="id">Bahasa Indonesia</option>
+    <option value="ms">Bahasa Melayu</option>
+    <option value="th">ภาษาไทย</option>
+    <option value="vi">Tiếng Việt</option>
+    <option value="pl">Polski</option>
+    <option value="nl">Nederlands</option>
+    <option value="sv">Svenska</option>
+    <option value="fi">Suomi</option>
+    <option value="he">עברית</option>
+    <option value="fa">فارسی</option>
+    <option value="sw">Kiswahili</option>
+    <option value="my">မြန်မာ</option>
+    <option value="tl">Filipino</option>
+    <option value="am">አማርኛ</option>
+    <option value="mn">Монгол</option>
+    <option value="ka">ქართული</option>
+    <option value="eu">Euskara</option>
+    <option value="cy">Cymraeg</option>
+    <option value="la">Latina</option>
+    <option value="eo">Esperanto</option>
+  </select>
+  <button onclick="speakLang()">🔊 Speak</button>
+</div>
+
+<!-- CHAPTER NAV -->
+<div class="ch-nav">
+  <div class="ch-nav-lbl">Navigate All 18 Chapters — सभी 18 अध्याय</div>
+  <div class="ch-grid" id="chGrid"></div>
+  <div class="progress-wrap"><div class="progress-bar" id="progBar" style="width:5.5%"></div></div>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main">
+  <div id="chapDisplay"></div>
+
+  <!-- DONATION -->
+  <div class="donation">
+    <div class="don-title">🙏 Support This Sacred Work</div>
+    <div class="don-sub">
+      Your contribution keeps the Bhagavad Gita free and accessible<br>
+      to all 8 billion souls across the world.<br>
+      <em style="color:#FF8C00;font-size:12px">Every rupee is a sacred offering — Jai Shri Krishna!</em>
+    </div>
+    <div class="don-amounts">
+      <button class="amt-btn sel" onclick="selAmt(this,'51')">₹51</button>
+      <button class="amt-btn" onclick="selAmt(this,'108')">₹108</button>
+      <button class="amt-btn" onclick="selAmt(this,'251')">₹251</button>
+      <button class="amt-btn" onclick="selAmt(this,'500')">₹500</button>
+      <button class="amt-btn" onclick="selAmt(this,'1001')">₹1001</button>
+      <button class="amt-btn" onclick="selAmt(this,'custom')">✏ Custom</button>
+    </div>
+    <input type="number" id="customAmt" placeholder="Enter amount ₹" min="1">
+    <br>
+    <div class="pay-methods">
+      <button class="pay-btn btn-paypal" onclick="payPayPal()">
+        <div style="font-size:22px;margin-bottom:6px">💙</div>
+        PayPal<br><small style="font-weight:400;opacity:0.8">International</small>
+      </button>
+      <button class="pay-btn btn-upi" onclick="showUPI()">
+        <div style="font-size:22px;margin-bottom:6px">📱</div>
+        UPI / GPay<br><small style="font-weight:400;opacity:0.8">Direct Transfer</small>
+      </button>
+      <button class="pay-btn btn-razorpay" onclick="payRazorpay()">
+        <div style="font-size:22px;margin-bottom:6px">💳</div>
+        Razorpay<br><small style="font-weight:400;opacity:0.8">Card / Net Banking</small>
+      </button>
+    </div>
+
+    <div class="upi-box" id="upiBox">
+      <div style="font-size:11px;letter-spacing:2px;color:#7de040;text-transform:uppercase;margin-bottom:8px">UPI Payment Details</div>
+      <div style="font-size:12px;color:#c9a96e">GPay / PhonePe / Paytm / BHIM — UPI ID:</div>
+      <div class="upi-id">8247630459@axl</div>
+      <button class="copy-btn" onclick="copyUPI()">📋 Copy UPI ID</button>
+      <div style="font-size:11px;color:#c9a96e;margin-top:10px">
+        Account Name: <strong style="color:#7de040">Muppuri Venkata Suresh</strong><br>
+        Open any UPI app → Send Money → Paste UPI ID
+      </div>
+    </div>
+
+    <div class="thanks-msg" id="thanksMsg">
+      🙏 Jai Shri Krishna! Thank you for your sacred offering of ₹<span id="donAmt"></span>!<br>
+      May Lord Krishna bless you and multiply your offering a thousandfold!<br>
+      <small style="color:#c9a96e">— Muppuri Venkata Suresh, Muppuri Chamber &amp; Palla Venkata Naga Adithya</small>
+    </div>
+
+    <div class="don-info">
+      PayPal: <span>paypal.me/MUP587</span> &nbsp;|&nbsp;
+      UPI: <span>8247630459@axl</span><br>
+      Email: <span>muppurivenkatasuresh@gmail.com</span><br>
+      Owners: <span>Muppuri Chamber</span> &amp; <span>Palla Venkata Naga Adithya</span>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-text">
+    <span class="hl">Bhagavad Gita — World's First Complete Digital Sacred Experience</span><br>
+    Developer: <span class="hl">Muppuri Venkata Suresh</span><br>
+    Owners: <span class="hl">Muppuri Chamber</span> &amp; <span class="hl">Palla Venkata Naga Adithya</span><br>
+    Email: <span class="hl">muppurivenkatasuresh@gmail.com</span><br>
+    PayPal: <span class="hl">paypal.me/MUP587</span> · UPI: <span class="hl">8247630459@axl</span><br>
+    All 700 Shlokas · 18 Chapters · 90+ Languages · Male &amp; Female Voice<br>
+    <small style="color:#806040;margin-top:6px;display:block">
+      सर्वे भवन्तु सुखिनः सर्वे सन्तु निरामयाः<br>
+      May All Beings Be Happy · May All Be Free From Illness<br>
+      © 2025 Muppuri Chamber. All Rights Reserved.
+    </small>
+  </div>
+</div>
+
+<script>
+// ── STAR PARTICLES ──
+(function(){
+  const c=document.getElementById('particles');
+  for(let i=0;i<60;i++){
+    const s=document.createElement('div');
+    s.className='star';
+    const sz=Math.random()*2+0.5;
+    s.style.cssText=`width:${sz}px;height:${sz}px;top:${Math.random()*100}%;left:${Math.random()*100}%;animation-delay:${Math.random()*3}s;animation-duration:${2+Math.random()*3}s;opacity:${Math.random()*0.5+0.1}`;
+    c.appendChild(s);
+  }
+})();
+
+// ── GITA DATA ──
+const CHAPTERS=[
+  {num:1,name:"Arjuna Vishada Yoga",skt:"अर्जुनविषाद योग",eng:"Yoga of Arjuna's Grief",count:47,
+   desc:"On the battlefield of Kurukshetra, Arjuna sees his kinsmen arrayed for battle. Overwhelmed with grief and compassion, he drops his bow — unable to fight those he loves. This crisis becomes the sacred doorway through which all divine wisdom flows.",
+   shlokas:[
+    {id:"1.1",skt:"धृतराष्ट्र उवाच | धर्मक्षेत्रे कुरुक्षेत्रे समवेता युयुत्सवः | मामकाः पाण्डवाश्चैव किमकुर्वत सञ्जय ||",rom:"Dhṛtarāṣṭra uvāca: dharmakṣetre kurukṣetre samavetā yuyutsavaḥ māmakāḥ Pāṇḍavāścaiva kimakurvata Sañjaya",meaning:"Dhritarashtra said: O Sanjaya, after my sons and the sons of Pandu assembled at the holy field of Kurukshetra, desiring to fight, what did they do?",words:[{w:"धर्मक्षेत्रे",m:"field of righteousness"},{w:"कुरुक्षेत्रे",m:"at Kurukshetra"},{w:"समवेताः",m:"assembled together"},{w:"युयुत्सवः",m:"desiring to fight"},{w:"मामकाः",m:"my sons"},{w:"किमकुर्वत",m:"what did they do"}],psychology:"Dhritarashtra's blind attachment reveals how parental bias distorts judgment — a textbook case of motivated reasoning in cognitive psychology. Love without wisdom leads to destruction.",mythology:"Kurukshetra is simultaneously a physical battlefield and the eternal inner battlefield of the human soul where dharma (righteousness) and adharma (unrighteousness) eternally contest.",science:"Partiality activates identical brain reward circuits as addiction. Dhritarashtra's blind love is neurologically comparable to substance dependency — it hijacks rational judgment.",behavior:"We all have Dhritarashtra moments — when love for our own blinds us to truth. Recognizing this bias is the first step to wisdom and fair judgment.",insight:"The entire Gita arises from one question asked in darkness. Your deepest questions in your darkest moments are the seeds of your greatest wisdom!"},
+    {id:"1.28",skt:"दृष्ट्वेमं स्वजनं कृष्ण युयुत्सुं समुपस्थितम् | सीदन्ति मम गात्राणि मुखं च परिशुष्यति ||",rom:"Dṛṣṭvemaṁ svajanaṁ Kṛṣṇa yuyutsuṁ samupasthitam sīdanti mama gātrāṇi mukhaṁ ca pariśuṣyati",meaning:"O Krishna, seeing my friends and relatives assembled before me in such a fighting spirit, my limbs fail and my mouth is drying up.",words:[{w:"दृष्ट्वा",m:"seeing"},{w:"स्वजनम्",m:"own kinsmen"},{w:"सीदन्ति",m:"quivering/failing"},{w:"गात्राणि",m:"limbs of body"},{w:"मुखम्",m:"mouth"},{w:"परिशुष्यति",m:"drying up"}],psychology:"A perfect clinical description of Acute Stress Response — fight/flight activation. The body responds to emotional crisis identically to physical danger. Modern psychiatry confirms this.",mythology:"Arjuna represents the awakened soul standing at the crossroads between worldly duty and spiritual awakening. His physical symptoms are the body's language for the soul's confusion.",science:"Dry mouth, trembling, and weakness exactly match adrenaline surge and sympathetic nervous system activation documented in modern physiology and sports psychology.",behavior:"When facing a moral dilemma involving loved ones, the body speaks before the mind decides. These physical signals are important data — telling us we are at a significant crossroads.",insight:"Your body's breakdown is sometimes your soul's breakthrough! Arjuna had to fall completely before rising to his highest potential. Fall forward!"},
+    {id:"1.47",skt:"एवमुक्त्वार्जुनः संख्ये रथोपस्थ उपाविशत् | विसृज्य सशरं चापं शोकसंविग्नमानसः ||",rom:"Evamuktvārjunaḥ saṅkhye rathopastha upāviśat visṛjya saśaraṁ cāpaṁ śokasaṁvignamānasaḥ",meaning:"Having thus spoken on the battlefield, Arjuna cast aside his bow and arrows and sat down on the chariot, his mind overwhelmed with grief.",words:[{w:"उक्त्वा",m:"having spoken"},{w:"रथोपस्थे",m:"on chariot seat"},{w:"उपाविशत्",m:"sat down"},{w:"विसृज्य",m:"casting aside"},{w:"चापम्",m:"bow"},{w:"शोकसंविग्न",m:"overwhelmed with grief"}],psychology:"Arjuna's collapse is ego dissolution — the prerequisite for true learning. Carl Rogers called this unconditional openness. When ego surrenders certainty, wisdom can enter.",mythology:"Setting down the bow symbolizes voluntary surrender of ego-driven force — the most courageous act in the entire Mahabharata epic.",science:"Genuine learning only occurs when existing mental models break down. Arjuna's collapse is the neurological prerequisite for profound insight and transformation.",behavior:"Sometimes the most powerful thing you can do is to stop, sit down, and admit you don't know. This is intellectual courage and emotional intelligence at their peak.",insight:"When you drop your weapons of ego and arrogance and sit in humility — that is when the Divine can finally speak to you!"}
+  ]},
+  {num:2,name:"Sankhya Yoga",skt:"सांख्य योग",eng:"Yoga of Knowledge",count:72,
+   desc:"The philosophical heart of the Gita. Krishna reveals the immortal Atman — eternal, unborn, indestructible. Karma Yoga is introduced. The Sthitaprajna — person of steady wisdom — is described. The most quoted chapter in world philosophy.",
+   shlokas:[
+    {id:"2.19",skt:"य एनं वेत्ति हन्तारं यश्चैनं मन्यते हतम् | उभौ तौ न विजानीतो नायं हन्ति न हन्यते ||",rom:"Ya enaṁ vetti hantāraṁ yaścainaṁ manyate hatam ubhau tau na vijānīto nāyaṁ hanti na hanyate",meaning:"He who thinks that this soul is a slayer, and he who thinks that it is slain — both of them fail to perceive the truth. The soul neither slays, nor is it slain.",words:[{w:"वेत्ति",m:"thinks/knows"},{w:"हन्तारम्",m:"the slayer"},{w:"मन्यते",m:"believes"},{w:"हतम्",m:"slain"},{w:"उभौ",m:"both"},{w:"न विजानीतः",m:"do not know truth"},{w:"न हन्यते",m:"is not slain"}],psychology:"Mistaking the body for the Self is the root of all psychological suffering. Viktor Frankl's logotherapy and existential psychology resonate deeply with this liberating verse.",mythology:"The soul's indestructibility is the cornerstone of Vedic cosmology. Atman is Brahman — the individual soul is the universal consciousness.",science:"Physics confirms: energy cannot be created or destroyed — only transformed. Consciousness as fundamental to the cosmos is seriously explored in modern quantum theories of mind.",behavior:"Over-identifying with role, title, or body makes us fragile and fearful. Understanding yourself as eternal consciousness creates unshakeable psychological stability.",insight:"YOU are not the body that was born and will die. You are the eternal witness — never born, never dying — FOREVER FREE!"},
+    {id:"2.20",skt:"न जायते म्रियते वा कदाचित् नायं भूत्वा भविता वा न भूयः | अजो नित्यः शाश्वतोऽयं पुराणो न हन्यते हन्यमाने शरीरे ||",rom:"Na jāyate mriyate vā kadācit nāyaṁ bhūtvā bhavitā vā na bhūyaḥ ajo nityaḥ śāśvato'yaṁ purāṇo na hanyate hanyamāne śarīre",meaning:"The soul is never born nor dies at any time. It is unborn, eternal, ever-existing, and primeval. It is not slain when the body is slain.",words:[{w:"न जायते",m:"is not born"},{w:"न म्रियते",m:"does not die"},{w:"अजः",m:"unborn"},{w:"नित्यः",m:"eternal"},{w:"शाश्वतः",m:"everlasting"},{w:"पुराणः",m:"primeval/ancient"},{w:"न हन्यते",m:"is not killed"},{w:"शरीरे",m:"in/by the body"}],psychology:"This verse dissolves thanatophobia at its root. Terror Management Theory shows death anxiety drives most destructive human behavior. This single verse offers complete liberation from that terror.",mythology:"Echoes across all traditions — the Egyptian Ba, Greek Psyche, Christian immortal soul — all reflect the universal human intuition of the soul's undying nature.",science:"The Hard Problem of Consciousness — why subjective experience exists at all — points toward something irreducible to mere neurons. The soul hypothesis remains scientifically viable.",behavior:"Belief in existence beyond death makes people less selfish, more courageous, more willing to sacrifice for others. Eternal identity is the biological and spiritual foundation of heroism.",insight:"You existed before birth. You will exist after death. You are INFINITE, ETERNAL, and INDESTRUCTIBLE. Let this truth fill you with fearless, unshakeable courage!"},
+    {id:"2.47",skt:"कर्मण्येवाधिकारस्ते मा फलेषु कदाचन | मा कर्मफलहेतुर्भूर्मा ते सङ्गोऽस्त्वकर्मणि ||",rom:"Karmaṇyevādhikāraste mā phaleṣu kadācana mā karmaphalaheturbhūrmā te saṅgo'stvakarmaṇi",meaning:"You have the right to perform your prescribed duties, but you are not entitled to the fruits of your actions. Never consider yourself the cause of results, and never be attached to not doing your duty.",words:[{w:"कर्मणि",m:"in action/duty"},{w:"एव",m:"only"},{w:"अधिकारः",m:"right/authority"},{w:"मा",m:"never/not"},{w:"फलेषु",m:"in the fruits/results"},{w:"सङ्गः",m:"attachment"},{w:"अकर्मणि",m:"in inaction"}],psychology:"Detaching outcomes from effort eliminates anxiety completely. Modern CBT teaches the same principle — focus on what you control (behavior), not what you cannot (outcomes).",mythology:"This teaching birthed the tradition of Nishkama Karma — desireless action — the philosophical foundation of Indian ethics, selfless service, and the entire yoga tradition.",science:"Process-focused motivation leads to sustained peak performance and flow states (Csikszentmihalyi). Outcome-focused motivation leads to anxiety, burnout, and paralysis.",behavior:"The greatest performers in sports, art, and science all describe being in the zone — completely absorbed in the action, not the result. This IS Karma Yoga in practice.",insight:"Do your absolute BEST — then release the result to the Universe. This single teaching can eliminate 90% of your stress and anxiety FOREVER!"},
+    {id:"2.55",skt:"प्रजहाति यदा कामान्सर्वान्पार्थ मनोगतान् | आत्मन्येवात्मना तुष्टः स्थितप्रज्ञस्तदोच्यते ||",rom:"Prajahāti yadā kāmānsarvānpārtha manogatān ātmanyevātmanā tuṣṭaḥ sthitaprajñastadocyate",meaning:"O Partha, when a person completely casts off all desires of the mind and is satisfied in the Self by the Self alone, then he is said to be one of steady wisdom — Sthitaprajna.",words:[{w:"प्रजहाति",m:"completely casts off"},{w:"कामान्",m:"desires"},{w:"सर्वान्",m:"all"},{w:"आत्मनि",m:"in the Self"},{w:"तुष्टः",m:"satisfied/content"},{w:"स्थितप्रज्ञः",m:"one of steady wisdom"}],psychology:"The Sthitaprajna perfectly describes Maslow's self-actualized person. Equanimity in pleasure and pain is the hallmark of mature psychological development and emotional mastery.",mythology:"The Sthitaprajna archetype appears as Janaka, Shuka, and later the Zen master — one who engages fully with the world while remaining completely untouched by it.",science:"Meditation masters show significantly reduced amygdala reactivity — the brain's alarm system — while maintaining full cognitive engagement. This IS Sthitaprajna measured in the brain.",behavior:"People who remain calm in storms, joyful in difficulty, unswayed by flattery or criticism — they are living Sthitaprajnas. Their peaceful presence transforms everyone around them.",insight:"The steady mind is the most powerful force on Earth. Cultivate equanimity through daily practice — and you become COMPLETELY UNDEFEATABLE!"}
+  ]},
+  {num:3,name:"Karma Yoga",skt:"कर्म योग",eng:"Yoga of Action",count:43,desc:"Action is inevitable — even breathing is action. Selfless action performed as offering to the Divine, without ego and desire, purifies the mind and leads to liberation. Every act becomes sacred worship.",shlokas:[
+    {id:"3.8",skt:"नियतं कुरु कर्म त्वं कर्म ज्यायो ह्यकर्मणः | शरीरयात्रापि च ते न प्रसिद्ध्येदकर्मणः ||",rom:"Niyataṁ kuru karma tvaṁ karma jyāyo hyakarmaṇaḥ śarīrayātrāpi ca te na prasiddhyedakarmaṇaḥ",meaning:"Perform your prescribed duty, for action is better than inaction. Even maintaining the physical body without work is not possible.",words:[{w:"नियतम्",m:"prescribed duty"},{w:"कुरु",m:"perform/do"},{w:"कर्म",m:"action/duty"},{w:"ज्यायः",m:"superior/better"},{w:"अकर्मणः",m:"than inaction"},{w:"शरीरयात्रा",m:"maintenance of body"}],psychology:"Behavioral activation — core to depression treatment — confirms: action precedes motivation. Starting the work creates the energy to continue. This is Karma Yoga as psychiatric therapy.",mythology:"The Vedic tradition is built on Yajna — sacrificial action. Every fire ceremony teaches: the act of giving creates abundance. Action is the language of the Divine.",science:"Neuroplasticity: every repeated action builds and strengthens neural pathways. Inaction creates neurological stagnation. Use it or lose it — at every level of existence.",behavior:"The single greatest antidote to anxiety, depression, and confusion is purposeful action. Act first — understanding follows. Courage is acting despite fear, not the absence of fear.",insight:"WORK IS WORSHIP! Every action performed with dedication and love is a sacred offering to the Divine. Your dharma is calling — ANSWER IT NOW!"},
+    {id:"3.21",skt:"यद्यदाचरति श्रेष्ठस्तत्तदेवेतरो जनः | स यत्प्रमाणं कुरुते लोकस्तदनुवर्तते ||",rom:"Yadyadācarati śreṣṭhastattadevetaro janaḥ sa yatpramāṇaṁ kurute lokastadanuvartate",meaning:"Whatever actions a great person performs, common people will follow. And whatever standards he sets by exemplary acts, all the world pursues.",words:[{w:"यद्यद्",m:"whatever"},{w:"आचरति",m:"performs/does"},{w:"श्रेष्ठः",m:"great person/leader"},{w:"तत्तद्",m:"that very thing"},{w:"इतरः जनः",m:"ordinary people"},{w:"प्रमाणम्",m:"standard/example"},{w:"लोकः",m:"the world"},{w:"अनुवर्तते",m:"follows"}],psychology:"Social learning theory (Bandura): humans learn primarily through observation and modeling. Leaders shape culture not through rules but through their visible, daily behavior.",mythology:"Krishna Himself lived what He taught — His entire life was the Gita embodied. The greatest teachers in every tradition are those whose lives ARE the teaching.",science:"Mirror neurons — discovered in the 1990s — are the biological basis of this verse. We literally simulate others' actions in our own brains. Leaders' behavior neurologically reshapes followers.",behavior:"You are influencing people around you whether you intend to or not. Every parent, teacher, and leader must understand: your actions speak louder than your words across all generations.",insight:"You are a LEADER — even if only for your own family or circle. Rise to your highest standard — the world will rise with you!"}
+  ]},
+  {num:4,name:"Jnana Karma Sanyasa Yoga",skt:"ज्ञानकर्मसंन्यास योग",eng:"Yoga of Knowledge and Renunciation",count:42,desc:"Krishna reveals His divine nature and the mystery of avatars. Whenever righteousness declines, He incarnates to restore cosmic order. The fire of wisdom burns all karma — even the greatest sinners can be liberated.",shlokas:[
+    {id:"4.7",skt:"यदा यदा हि धर्मस्य ग्लानिर्भवति भारत | अभ्युत्थानमधर्मस्य तदात्मानं सृजाम्यहम् ||",rom:"Yadā yadā hi dharmasya glānirbhavati bhārata abhyutthānamadharmasya tadātmānaṁ sṛjāmyaham",meaning:"Whenever and wherever there is a decline in religious practice and a predominant rise of irreligion — at that time I descend Myself.",words:[{w:"यदा यदा",m:"whenever"},{w:"धर्मस्य",m:"of righteousness"},{w:"ग्लानिः",m:"decline/corruption"},{w:"अभ्युत्थानम्",m:"predominant rise"},{w:"अधर्मस्य",m:"of unrighteousness"},{w:"आत्मानम्",m:"Myself"},{w:"सृजामि",m:"I manifest/create"}],psychology:"The archetype of the divine helper — the Self descending when the ego is overwhelmed — mirrors Jung's concept of the greater Self intervening in psychological crisis through grace.",mythology:"The definitive statement of the avatar doctrine — one of India's greatest contributions to world religious thought. Rama, Krishna, Buddha, Kalki — all expressions of this cosmic principle.",science:"Systems theory: every stable system has self-correcting homeostatic mechanisms. The avatar may represent the universe's built-in self-correction system restoring cosmic balance.",behavior:"In organizations, families, and societies — when corruption peaks, transformative leaders emerge. History confirms: darkness generates its own antidote. Justice ultimately prevails.",insight:"The Universe is NOT indifferent! When darkness is at its absolute worst — the Divine shows up. Trust the cosmic justice system — it has NEVER ultimately failed!"},
+    {id:"4.8",skt:"परित्राणाय साधूनां विनाशाय च दुष्कृताम् | धर्मसंस्थापनार्थाय सम्भवामि युगे युगे ||",rom:"Paritrāṇāya sādhūnāṁ vināśāya ca duṣkṛtām dharmasaṁsthāpanārthāya sambhavāmi yuge yuge",meaning:"To deliver the pious and to annihilate the miscreants, as well as to reestablish the principles of religion, I Myself appear, millennium after millennium.",words:[{w:"परित्राणाय",m:"for protection/deliverance"},{w:"साधूनाम्",m:"of the righteous"},{w:"विनाशाय",m:"for destruction"},{w:"दुष्कृताम्",m:"of the wicked"},{w:"धर्मसंस्थापन",m:"re-establishment of dharma"},{w:"युगे युगे",m:"age after age"}],psychology:"Purpose-driven life — Viktor Frankl's key to psychological health. The universe has meaning and purpose. The cycles of history are purposeful, not random or meaningless.",mythology:"Yuge yuge confirms the cyclical cosmology of India: Satya, Treta, Dvapara, Kali Yugas endlessly repeating with divine intervention at critical junctures of human history.",science:"Chaos theory: complex systems show periodic self-organizing criticality — sudden phase transitions from disorder to order. Divine descents may be the cosmos's critical transition points.",behavior:"Knowing justice is built into the cosmic fabric reduces anxiety, increases patience, and cultivates deep trust. Belief in ultimate justice is the foundation of true resilience.",insight:"Justice is COSMIC and GUARANTEED! Righteousness always wins — not always immediately, but ALWAYS inevitably. Hold your dharma with absolute iron conviction!"}
+  ]},
+  {num:5,name:"Karma Sanyasa Yoga",skt:"कर्मसंन्यास योग",eng:"Yoga of Renunciation",count:29,desc:"True renunciation is inner — the ego releases attachment to outcomes, not the body from action. The wise see the same Divine Self in all beings with perfect equanimity and compassion.",shlokas:[
+    {id:"5.18",skt:"विद्याविनयसम्पन्ने ब्राह्मणे गवि हस्तिनि | शुनि चैव श्वपाके च पण्डिताः समदर्शिनः ||",rom:"Vidyāvinayasampanne brāhmaṇe gavi hastini śuni caiva śvapāke ca paṇḍitāḥ samadarśinaḥ",meaning:"The humble sages, by virtue of true knowledge, see with equal vision a learned brahmin, a cow, an elephant, a dog, and a dog-eater.",words:[{w:"विद्याविनयसम्पन्ने",m:"endowed with knowledge and humility"},{w:"ब्राह्मणे",m:"in a brahmin"},{w:"गवि",m:"in a cow"},{w:"हस्तिनि",m:"in an elephant"},{w:"शुनि",m:"in a dog"},{w:"पण्डिताः",m:"the wise"},{w:"समदर्शिनः",m:"see equally"}],psychology:"Empathy at the highest level — recognizing the same consciousness in all others — is Kohlberg's Level 6 moral development. Sama-darshana IS this ultimate universal empathy.",mythology:"This verse obliterates caste discrimination at its philosophical root. The Gita sees divinity equally in the most exalted and the most marginalized — revolutionary for all times.",science:"All life shares fundamental DNA. At the quantum level, all matter is one unified field of energy. Science is slowly confirming what the Gita declared 5000 years ago: we are ONE.",behavior:"Prejudice and violence stem from seeing others as fundamentally different. Sama-darshana — equal vision — is the complete antidote to all hatred in human history.",insight:"The sage sees the SAME divine soul in the saint and the sinner, the rich and the poor, the human and animal. This vision transforms every single interaction!"}
+  ]},
+  {num:6,name:"Dhyana Yoga",skt:"ध्यान योग",eng:"Yoga of Meditation",count:47,desc:"Complete meditation instructions — posture, diet, lifestyle, and the samadhi experience. The mind is your best friend or your worst enemy. Mastering the mind is the greatest victory possible.",shlokas:[
+    {id:"6.5",skt:"उद्धरेदात्मनात्मानं नात्मानमवसादयेत् | आत्मैव ह्यात्मनो बन्धुरात्मैव रिपुरात्मनः ||",rom:"Uddharedātmanātmānaṁ nātmānamavasādayet ātmaiva hyātmano bandhurātmaiva ripurātmanaḥ",meaning:"One must deliver himself with the help of his own mind, and not degrade himself. The mind is the friend of the conditioned soul, and also his enemy.",words:[{w:"उद्धरेत्",m:"must uplift/rescue"},{w:"आत्मना",m:"by oneself/the Self"},{w:"न अवसादयेत्",m:"must not degrade"},{w:"बन्धुः",m:"friend"},{w:"रिपुः",m:"enemy"},{w:"आत्मनः",m:"of oneself"}],psychology:"Self-efficacy (Bandura) and internal locus of control (Rotter) — the belief that you are the primary agent in your own development — correlate with every measure of psychological health.",mythology:"The chariot metaphor: body is the chariot, senses are the horses, mind is the reins, intellect is the charioteer. The soul is the passenger. Master the reins to reach the destination!",science:"Neuroplasticity research confirms: through deliberate practice and meditation, humans can literally rewire their brains — from anxiety to equanimity, from reactivity to wisdom.",behavior:"Every morning you have a choice: will your mind be your friend today — focused, disciplined, creative — or your enemy — distracted, anxious, self-defeating? This verse puts the choice with YOU.",insight:"YOU are your own greatest project! Invest in your mind, your consciousness, your character. No one else can do this sacred inner work for you — only YOU can!"},
+    {id:"6.35",skt:"असंशयं महाबाहो मनो दुर्निग्रहं चलम् | अभ्यासेन तु कौन्तेय वैराग्येण च गृह्यते ||",rom:"Asaṁśayaṁ mahābāho mano durnigrahaṁ calam abhyāsena tu kaunteya vairāgyeṇa ca gṛhyate",meaning:"O mighty-armed Arjuna, the restless mind is undoubtedly very difficult to curb, but it is possible by suitable practice and by detachment.",words:[{w:"असंशयम्",m:"undoubtedly"},{w:"मनः",m:"the mind"},{w:"दुर्निग्रहम्",m:"difficult to control"},{w:"चलम्",m:"restless/wavering"},{w:"अभ्यासेन",m:"by practice"},{w:"वैराग्येण",m:"by detachment"},{w:"गृह्यते",m:"can be mastered"}],psychology:"The two pillars of cognitive training: Abhyasa (deliberate practice) and Vairagya (non-attachment). Modern DBT, ACT, and mindfulness-based CBT rest on exactly these two ancient foundations.",mythology:"Even Krishna acknowledges the mind's restlessness — validating the student's struggle. A teacher who admits difficulty is trustworthy. Compassion for the student's struggle IS wisdom.",science:"8 weeks of mindfulness practice measurably increases prefrontal cortex gray matter and reduces amygdala volume. Daily practice literally changes the physical structure of the brain.",behavior:"Don't expect to master the mind quickly. The greatest meditators practice for decades. Start with 10 minutes daily. Stay consistent. Trust the process completely and without doubt.",insight:"Even KRISHNA says the mind is difficult to control — so stop being harsh on yourself! But with DAILY PRACTICE, you WILL master it. Never, ever give up!"}
+  ]},
+  {num:7,name:"Jnana Vijnana Yoga",skt:"ज्ञानविज्ञान योग",eng:"Yoga of Knowledge and Wisdom",count:30,desc:"Krishna reveals His divine presence in all of creation — the taste in water, light in the sun, fragrance in the earth. Four types of devotees approach God. The knower of God is most rare and most beloved.",shlokas:[
+    {id:"7.8",skt:"रसोऽहमप्सु कौन्तेय प्रभास्मि शशिसूर्ययोः | प्रणवः सर्ववेदेषु शब्दः खे पौरुषं नृषु ||",rom:"Raso'hamapsu kaunteya prabhāsmi śaśisūryayoḥ praṇavaḥ sarvavedeṣu śabdaḥ khe pauruṣaṁ nṛṣu",meaning:"O son of Kunti, I am the taste of water, the light of the sun and the moon, the syllable Om in the Vedas, the sound in ether, and ability in man.",words:[{w:"रसः",m:"taste/essence"},{w:"अहम्",m:"I am"},{w:"अप्सु",m:"in water"},{w:"प्रभा",m:"light/radiance"},{w:"प्रणवः",m:"the sacred syllable Om"},{w:"शब्दः",m:"sound/vibration"},{w:"पौरुषम्",m:"ability/strength"},{w:"नृषु",m:"in humans"}],psychology:"Finding the numinous in the mundane — Maslow's peak experiences — is the Gita's daily prescription for wellbeing. This verse makes every sip of water a complete spiritual act.",mythology:"The Divine as essence within all things — Antaryami, the inner dweller — is the Upanishadic revelation made accessible. God IS the life within all of creation.",science:"Physics describes fundamental fields underlying all sensory experience: electromagnetic fields for light and taste, quantum fields for sound and vibration. Krishna IS those fundamental fields.",behavior:"When you drink water, taste the Divine. When sunlight touches you, recognize divine radiance. Every experience becomes meditation — this is the secret of the truly saintly.",insight:"God is not just in the temple — God IS the taste in your food, the light you see, the sound you hear! EVERY experience is a divine encounter!"}
+  ]},
+  {num:8,name:"Aksara Brahma Yoga",skt:"अक्षरब्रह्म योग",eng:"Yoga of the Imperishable Brahman",count:28,desc:"Cosmic secrets — the cycles of creation and dissolution, the bright and dark paths after death, and the imperishable Brahman. Your final thought at death determines your next journey.",shlokas:[
+    {id:"8.5",skt:"अन्तकाले च मामेव स्मरन्मुक्त्वा कलेवरम् | यः प्रयाति स मद्भावं याति नास्त्यत्र संशयः ||",rom:"Antakāle ca māmeva smaranmuktvā kalevaram yaḥ prayāti sa madbhāvaṁ yāti nāstyatra saṁśayaḥ",meaning:"Whoever, at the time of death, gives up the body remembering Me alone, reaches My state. Of this there is no doubt.",words:[{w:"अन्तकाले",m:"at time of death"},{w:"माम् एव",m:"Me alone"},{w:"स्मरन्",m:"remembering"},{w:"मुक्त्वा",m:"giving up/departing"},{w:"कलेवरम्",m:"the body"},{w:"मद्भावम्",m:"My state/divine nature"},{w:"याति",m:"attains"},{w:"संशयः",m:"doubt"}],psychology:"State-dependent learning: what we rehearse regularly becomes available in our most vulnerable moments. Habitual God-consciousness naturally emerges at death in those who practice it daily.",mythology:"This teaching became the foundation for Nama-smarana — constant divine remembrance — foundational to Hindu, Buddhist, and Sufi traditions. Dying with God's name is the highest blessing.",science:"The brain's last active region is often the limbic system — seat of emotion and deep memory. What we love most deeply surfaces last. Plant divine love deeply in yourself now.",behavior:"Don't wait for death to think about God. The habits of a lifetime surface in the last moments. Today's prayer is tomorrow's final thought. Build the habit of remembrance starting now.",insight:"Your last thought IS your next life! Live every day in divine remembrance so the Divine is naturally your last breath and first step into eternity!"}
+  ]},
+  {num:9,name:"Raja Vidya Yoga",skt:"राजविद्या राजगुह्य योग",eng:"Yoga of Royal Knowledge",count:34,desc:"The King of all secrets! God personally accepts even a leaf offered with love. He carries what His devotees lack and preserves what they have. The most intimate and loving chapter of the Gita.",shlokas:[
+    {id:"9.22",skt:"अनन्याश्चिन्तयन्तो मां ये जनाः पर्युपासते | तेषां नित्याभियुक्तानां योगक्षेमं वहाम्यहम् ||",rom:"Ananyāścintayanto māṁ ye janāḥ paryupāsate teṣāṁ nityābhiyuktānāṁ yogakṣemaṁ vahāmyaham",meaning:"Those who worship Me with exclusive devotion, meditating on My form — to them I carry what they lack and preserve what they have.",words:[{w:"अनन्याः",m:"without any other (exclusive)"},{w:"चिन्तयन्तः",m:"meditating/thinking"},{w:"पर्युपासते",m:"worship completely"},{w:"नित्याभियुक्तानाम्",m:"of those always devoted"},{w:"योगक्षेमम्",m:"welfare — acquiring needed, preserving had"},{w:"वहामि",m:"I carry/bear"},{w:"अहम्",m:"I"}],psychology:"Secure attachment: those with secure divine attachment show the greatest resilience, creativity, and generosity across all research on human flourishing and psychological wellbeing.",mythology:"God's personal promise: Yoga-Kshema — I bring what you need and protect what you have. The most practical and intimate divine guarantee in all of world scripture.",science:"Trust and surrender show dramatic health benefits — lower cortisol, better immune function, greater cardiovascular health. Trusting a higher power literally heals the physical body.",behavior:"Release anxiety about how things will work out. Focus on devotion and duty. The rest is guaranteed by the highest power in the universe. This is not naive — it is the deepest wisdom.",insight:"GOD HIMSELF is your personal provider! He carries everything you need. Your only job is wholehearted, exclusive, joyful devotion to the Divine!"},
+    {id:"9.26",skt:"पत्रं पुष्पं फलं तोयं यो मे भक्त्या प्रयच्छति | तदहं भक्त्युपहृतमश्नामि प्रयतात्मनः ||",rom:"Patraṁ puṣpaṁ phalaṁ toyaṁ yo me bhaktyā prayacchati tadahaṁ bhaktyupahṛtamaśnāmi prayatātmanaḥ",meaning:"If one offers Me with love and devotion a leaf, a flower, a fruit, or water, I will accept it.",words:[{w:"पत्रम्",m:"a leaf"},{w:"पुष्पम्",m:"a flower"},{w:"फलम्",m:"a fruit"},{w:"तोयम्",m:"water"},{w:"भक्त्या",m:"with devotion/love"},{w:"प्रयच्छति",m:"offers"},{w:"भक्त्युपहृतम्",m:"offered with devotion"},{w:"अश्नामि",m:"I accept"}],psychology:"Intrinsic motivation: the quality of love behind the offering matters infinitely more than its quantity. A small act of pure love has greater impact than any large act done for show.",mythology:"This verse democratized spirituality — no temple or elaborate ritual needed. A leaf from the heart reaches God directly. Bhakti transcends all caste, wealth, and social hierarchy.",science:"Intention research suggests the quality of consciousness behind an action affects its real-world impact. Love as a quantum field may be more than metaphor.",behavior:"You need no money, status, or education to connect with the Divine. The poorest person with the purest heart has direct access to God. This teaching dissolves all spiritual elitism forever.",insight:"Even a simple LEAF offered with pure love is accepted by God! He cares infinitely more about the LOVE behind the offering than the offering itself!"}
+  ]},
+  {num:10,name:"Vibhuti Yoga",skt:"विभूति योग",eng:"Yoga of Divine Manifestations",count:42,desc:"Krishna reveals His divine opulences — He is the best and most excellent of everything in creation. Every extraordinary thing is a spark of His infinite splendor. The Divine is hidden in all excellence.",shlokas:[
+    {id:"10.20",skt:"अहमात्मा गुडाकेश सर्वभूताशयस्थितः | अहमादिश्च मध्यं च भूतानामन्त एव च ||",rom:"Ahamātmā guḍākeśa sarvabhūtāśayasthitaḥ ahamādiśca madhyaṁ ca bhūtānāmanta eva ca",meaning:"I am the Self, O Gudakesha, seated in the hearts of all creatures. I am the beginning, the middle, and the end of all beings.",words:[{w:"अहम्",m:"I am"},{w:"आत्मा",m:"the Self/Soul"},{w:"सर्वभूत",m:"of all beings"},{w:"आशय",m:"heart/core"},{w:"स्थितः",m:"situated/dwelling"},{w:"आदिः",m:"beginning"},{w:"मध्यम्",m:"middle"},{w:"अन्तः",m:"end"}],psychology:"The Self as ground of being — the deepest layer of consciousness is not personal but universal. This realization permanently ends all existential loneliness and separation.",mythology:"The Antaryami — inner dweller — is the supreme secret of Upanishadic mysticism. The God sought in temples is already seated in your own heart. You are already the destination.",science:"The Hard Problem of Consciousness may point to consciousness as fundamental to reality, not as its by-product. Modern physicists and philosophers seriously consider this possibility.",behavior:"Loneliness is impossible when you realize the Divine is always within you. Every moment of solitude becomes divine communion. You are never, ever truly alone.",insight:"The God you are searching for is already living in YOUR HEART! The seeker IS the sought. Turn within — find the One who was NEVER absent!"}
+  ]},
+  {num:11,name:"Vishwarupa Darshana Yoga",skt:"विश्वरूपदर्शन योग",eng:"Yoga of the Cosmic Form",count:55,desc:"The most dramatic chapter! Krishna reveals His infinite Cosmic Form — all of creation simultaneously. Terrifying and magnificent. Suns, moons, all gods, all beings, all time — blazing in one infinite divine form.",shlokas:[
+    {id:"11.12",skt:"दिवि सूर्यसहस्रस्य भवेद्युगपदुत्थिता | यदि भाः सदृशी सा स्याद्भासस्तस्य महात्मनः ||",rom:"Divi sūryasahasrasya bhavedyugapadutthitā yadi bhāḥ sadṛśī sā syādbhāsastasya mahātmanaḥ",meaning:"If hundreds of thousands of suns rose up at once in the sky, they might resemble the effulgence of the Supreme Person in that universal form.",words:[{w:"दिवि",m:"in the sky"},{w:"सूर्यसहस्रस्य",m:"of a thousand suns"},{w:"युगपत्",m:"simultaneously"},{w:"उत्थिता",m:"risen"},{w:"भाः",m:"light/radiance"},{w:"भासः",m:"the effulgence"},{w:"महात्मनः",m:"of the Supreme Person"}],psychology:"Rudolf Otto's numinous — the overwhelming, terrifying yet fascinating experience of the holy — finds its supreme expression here. The ego dissolves in the presence of the infinite divine.",mythology:"This is the Theophany of all theophanies — the most comprehensive and awe-inspiring vision of the Divine in all of world literature across all sacred traditions.",science:"The observable universe contains 2 trillion galaxies, each with billions of suns. A thousand suns is inconceivably small compared to this — itself a fraction of all that is.",behavior:"When overwhelmed by life's problems, hold this perspective: you are consciousness contemplating 2 trillion galaxies. Your problem is real and also an infinitely small part of the infinite whole.",insight:"The light of a THOUSAND SUNS is only a HINT of God's infinite radiance! We live inside a miracle of INCOMPREHENSIBLE, STAGGERING, BREATHTAKING MAGNITUDE!"},
+    {id:"11.33",skt:"तस्मात्त्वमुत्तिष्ठ यशो लभस्व जित्वा शत्रून् भुङ्क्ष्व राज्यं समृद्धम् | मयैवैते निहताः पूर्वमेव निमित्तमात्रं भव सव्यसाचिन् ||",rom:"Tasmāttvamuttiṣṭha yaśo labhasva jitvā śatrūn bhuṅkṣva rājyaṁ samṛddham mayaivaite nihatāḥ pūrvameva nimittamātraṁ bhava savyasācin",meaning:"Therefore get up and prepare to fight. Conquer your enemies and enjoy a flourishing kingdom. They are already put to death by My arrangement — you can be but an instrument in the fight.",words:[{w:"तस्मात्",m:"therefore"},{w:"उत्तिष्ठ",m:"arise/stand up"},{w:"यशः",m:"glory/fame"},{w:"शत्रून्",m:"enemies"},{w:"मयैव",m:"by Me alone"},{w:"निहताः",m:"already slain"},{w:"निमित्तमात्रम्",m:"merely an instrument"},{w:"भव",m:"become"}],psychology:"When aligned with a purpose larger than yourself, fear dissolves completely. Frankl found that meaning transcending the individual is the most powerful source of courage in any situation.",mythology:"ARISE! — the cosmic call echoes through all dharmic traditions. The warrior must act; the universe has determined the outcome; act with full power without personal anxiety or ego.",science:"Even in a determined system, the individual's full engagement is part of what causes outcomes. The instrument must function perfectly to fulfill the cosmic plan. You matter completely.",behavior:"When paralyzed by a challenge: remember you are an instrument of a greater intelligence. Play your part with full commitment. Act boldly — then release the outcome with trust.",insight:"ARISE! The universe has already organized the victory. You are the sacred instrument. Play your divine role with 100% commitment and absolute FEARLESSNESS!"}
+  ]},
+  {num:12,name:"Bhakti Yoga",skt:"भक्ति योग",eng:"Yoga of Devotion",count:20,desc:"The shortest and most beloved chapter! Bhakti — pure love — is the easiest and most direct path to God. Krishna describes His dearest devotees in the most intimate and tender language in all of scripture.",shlokas:[
+    {id:"12.13-14",skt:"अद्वेष्टा सर्वभूतानां मैत्रः करुण एव च | निर्ममो निरहङ्कारः समदुःखसुखः क्षमी || सन्तुष्टः सततं योगी यतात्मा दृढनिश्चयः | मय्यर्पितमनोबुद्धिर्यो मद्भक्तः स मे प्रियः ||",rom:"Adveṣṭā sarvabhūtānāṁ maitraḥ karuṇa eva ca nirmamo nirahaṅkāraḥ... yo madbhaktaḥ sa me priyaḥ",meaning:"One who is non-envious, friendly, compassionate, without possessiveness or ego, equal in pleasure and pain, forgiving, ever-satisfied, self-controlled, fixed in determination — such a devotee is very dear to Me.",words:[{w:"अद्वेष्टा",m:"non-envious"},{w:"मैत्रः",m:"friendly"},{w:"करुणः",m:"compassionate"},{w:"निर्ममः",m:"without possessiveness"},{w:"निरहङ्कारः",m:"without ego"},{w:"क्षमी",m:"forgiving"},{w:"सन्तुष्टः",m:"ever content"},{w:"दृढनिश्चयः",m:"firm in determination"},{w:"मे प्रियः",m:"dear to Me"}],psychology:"This is the most comprehensive positive personality profile in world literature — matching positive psychology's PERMA model, Maslow's self-actualized person, and Erikson's integrity simultaneously.",mythology:"These verses form the Bhakta-Lakshana — defining marks of the true devotee. Read as daily prayer by millions. The aspirational ideal for human character across all dharmic tradition.",science:"Each quality listed has measurable health benefits: compassion (oxytocin), non-possessiveness (reduced cortisol), equanimity (amygdala regulation), forgiveness (immune system enhancement).",behavior:"Use this as your daily character checklist: Am I non-envious? Compassionate? Without ego? Forgiving? Content? Each quality is a practice. Daily examination transforms character over time.",insight:"This is the BLUEPRINT for divine human character! Non-envious, compassionate, humble, forgiving, content — this person is DEAR TO GOD and beloved by everyone!"}
+  ]},
+  {num:13,name:"Kshetra Kshetrajna Yoga",skt:"क्षेत्र-क्षेत्रज्ञविभाग योग",eng:"Yoga of the Field and its Knower",count:35,desc:"The body is the field (Kshetra); the soul is its knower (Kshetrajna). Understanding this distinction completely liberates. The Supreme Self witnesses all fields simultaneously with perfect equanimity.",shlokas:[
+    {id:"13.28",skt:"समं सर्वेषु भूतेषु तिष्ठन्तं परमेश्वरम् | विनश्यत्स्वविनश्यन्तं यः पश्यति स पश्यति ||",rom:"Samaṁ sarveṣu bhūteṣu tiṣṭhantaṁ parameśvaram vinaśyatsvavanaśyantaṁ yaḥ paśyati sa paśyati",meaning:"One who sees the Supersoul equally present everywhere, in every living being, approaches the transcendental — that person truly sees.",words:[{w:"समम्",m:"equally"},{w:"सर्वेषु भूतेषु",m:"in all beings"},{w:"तिष्ठन्तम्",m:"situated/dwelling"},{w:"परमेश्वरम्",m:"the Supreme Lord"},{w:"विनश्यत्सु",m:"among the perishable"},{w:"अविनश्यन्तम्",m:"the imperishable"},{w:"पश्यति",m:"sees truly"}],psychology:"The observer-observed distinction is central to mindfulness: recognizing yourself as the witness of thoughts — not the thoughts themselves — creates freedom from their compulsive power.",mythology:"Kshetra-Kshetrajna teaching is the Gita's version of Neti-Neti — recognizing what you are NOT until only the pure eternal Self remains shining in its own light.",science:"Neuroscience distinguishes the default mode network (narrative self) and the observer mode — a meta-cognitive state activated in meditation. Kshetrajna IS this pure meta-observer.",behavior:"Practice self-inquiry daily: when thoughts arise, ask 'Who is aware of this thought?' You'll find a stable, serene witness behind all experience. That witness is the eternal YOU.",insight:"You are the OBSERVER — not the observed! As the eternal witness, you are infinitely free — completely untouched by any experience that passes through consciousness!"}
+  ]},
+  {num:14,name:"Gunatraya Vibhaga Yoga",skt:"गुणत्रयविभाग योग",eng:"Yoga of the Three Qualities",count:27,desc:"The three gunas — Sattva (clarity), Rajas (passion), Tamas (inertia) — constitute all material reality. Understand them for mastery over your own nature and the power to transcend all three forever.",shlokas:[
+    {id:"14.26",skt:"मां च योऽव्यभिचारेण भक्तियोगेन सेवते | स गुणान्समतीत्यैतान् ब्रह्मभूयाय कल्पते ||",rom:"Māṁ ca yo'vyabhicāreṇa bhaktiyogena sevate sa guṇānsamatītyaitān brahmabhūyāya kalpate",meaning:"One who engages in full devotional service, unfailing in all circumstances, at once transcends the modes of material nature and thus comes to the level of Brahman.",words:[{w:"अव्यभिचारेण",m:"without deviation/unfailing"},{w:"भक्तियोगेन",m:"by devotional service"},{w:"सेवते",m:"serves/worships"},{w:"गुणान्",m:"the modes/qualities"},{w:"समतीत्य",m:"transcending"},{w:"ब्रह्मभूयाय",m:"to the level of Brahman"}],psychology:"Total commitment to a transcendent purpose reorganizes the entire personality, lifting it above ordinary psychological conflicts and limitations that plague ordinary consciousness.",mythology:"Bhakti transcends all three gunas — the most revolutionary teaching in the Gita's philosophy of nature. Love liberates from the very fundamental laws of material existence.",science:"Quantum coherence: when particles operate in coherent alignment, they exhibit impossible properties. Coherent devotion creates emergent spiritual properties transcending ordinary limitations.",behavior:"Unfailing devotion — not devotion when convenient, but in joy, pain, success, and failure — is the key. This unfailing quality is what transcends all limitations and liberates the soul.",insight:"BHAKTI transcends ALL three gunas! Pure love and devotion lifts you beyond the entire play of material nature to the state of pure Spirit — the ultimate shortcut to liberation!"}
+  ]},
+  {num:15,name:"Purushottama Yoga",skt:"पुरुषोत्तम योग",eng:"Yoga of the Supreme Person",count:20,desc:"Beyond the perishable world and imperishable souls exists the Purushottama — the Supreme Person. God dwells in every heart granting memory, knowledge, and inspiration. The most secret of all teachings.",shlokas:[
+    {id:"15.15",skt:"सर्वस्य चाहं हृदि सन्निविष्टो मत्तः स्मृतिर्ज्ञानमपोहनं च | वेदैश्च सर्वैरहमेव वेद्यो वेदान्तकृद्वेदविदेव चाहम् ||",rom:"Sarvasya cāhaṁ hṛdi sanniviṣṭo mattaḥ smṛtirjñānamapohanañca vedaiśca sarvairahameva vedyo vedāntakṛdvedavideva cāham",meaning:"I am seated in everyone's heart, and from Me come remembrance, knowledge and forgetfulness. By all the Vedas, I am to be known. I am the compiler of Vedanta and the knower of the Vedas.",words:[{w:"सर्वस्य",m:"of all"},{w:"अहम्",m:"I"},{w:"हृदि",m:"in the heart"},{w:"सन्निविष्टः",m:"seated/dwelling"},{w:"स्मृतिः",m:"memory"},{w:"ज्ञानम्",m:"knowledge"},{w:"अपोहनम्",m:"forgetfulness"},{w:"वेदान्तकृत्",m:"author of Vedanta"}],psychology:"All genuine creativity, memory, and wisdom arise from within — from the deeper Self. The Jungian unconscious and Maslovian transpersonal Self both point to this Divine presence within.",mythology:"Hridaya — the heart — is the seat of the Divine in Vedic anatomy. The cave of the heart (Hridayaguhara) is where ancient seers found the infinite residing peacefully within the finite.",science:"Intuition research shows access to unconscious processing — experienced as sudden insight and inspiration — is a real documented cognitive phenomenon pointing to wisdom beyond ordinary mind.",behavior:"Before every important decision, pause and ask the Divine within for guidance: 'The answer is in me — help me access it.' This inner consultation completely transforms decision-making quality.",insight:"God sits in YOUR HEART giving you every memory, every inspiration, every flash of understanding! You are a living temple — the Divine has NEVER, EVER left you!"}
+  ]},
+  {num:16,name:"Daivasura Sampad Yoga",skt:"दैवासुरसम्पद्विभाग योग",eng:"Yoga of Divine and Demonic Qualities",count:24,desc:"Complete moral psychology: 26 divine qualities (fearlessness, compassion, truthfulness) vs. demonic qualities (arrogance, cruelty, greed). The three gates to hell that destroy the soul: lust, anger, and greed.",shlokas:[
+    {id:"16.1-3",skt:"अभयं सत्त्वसंशुद्धिः ज्ञानयोगव्यवस्थितिः | दानं दमश्च यज्ञश्च स्वाध्यायस्तप आर्जवम् ||",rom:"Abhayaṁ sattvasaṁśuddhiḥ jñānayogavyavasthitiḥ dānaṁ damaśca yajñaśca svādhyāyastapa ārjavam",meaning:"Fearlessness, purity of heart, steadfastness in knowledge; charity, self-control, sacrifice, study, austerity, simplicity; non-violence, truthfulness, freedom from anger — these divine qualities belong to one born for liberation.",words:[{w:"अभयम्",m:"fearlessness"},{w:"सत्त्वसंशुद्धिः",m:"purity of existence"},{w:"दानम्",m:"charity/giving"},{w:"दमः",m:"self-control"},{w:"अहिंसा",m:"non-violence"},{w:"सत्यम्",m:"truthfulness"},{w:"अक्रोधः",m:"freedom from anger"},{w:"क्षमा",m:"forgiveness"},{w:"धृतिः",m:"fortitude/steadiness"}],psychology:"Positive psychology's 24 character strengths (VIA Institute) almost perfectly align with these divine qualities. These are measurable, empirical correlates of human flourishing and wellbeing.",mythology:"The Daivi Sampat and Asuri Sampat represent the two fundamental orientations of consciousness across all world mythology — the hero and the demon, the saint and the sinner within each of us.",science:"Each divine quality has measurable health benefits: fearlessness (cortisol reduction), compassion (oxytocin and serotonin release), forgiveness (immune enhancement), non-violence (social cooperation).",behavior:"Use this list as your weekly personal audit. Cultivate one quality each week. In 26 weeks, you will have fundamentally transformed your character and your life circumstances.",insight:"FEARLESSNESS is listed FIRST — the foundation of all divine qualities! When you know your eternal soul, what remains to fear? FEARLESSNESS unlocks every other virtue!"},
+    {id:"16.21",skt:"त्रिविधं नरकस्येदं द्वारं नाशनमात्मनः | कामः क्रोधस्तथा लोभस्तस्मादेतत्त्रयं त्यजेत् ||",rom:"Trividhaṁ narakasyedaṁ dvāraṁ nāśanamātmanaḥ kāmaḥ krodhastathhā lobhastasmādetattrayaṁ tyajet",meaning:"There are three gates leading to the hell that destroys the soul — lust, anger, and greed. Every sane person should abandon these three completely.",words:[{w:"त्रिविधम्",m:"threefold"},{w:"नरकस्य",m:"of hell"},{w:"द्वारम्",m:"gate/door"},{w:"नाशनम्",m:"destroyer"},{w:"कामः",m:"lust/unbridled desire"},{w:"क्रोधः",m:"anger/rage"},{w:"लोभः",m:"greed/avarice"},{w:"त्यजेत्",m:"should abandon"}],psychology:"The APA's core destructive emotions exactly match: lust (compulsive desire), anger (dysregulated aggression), greed (insatiable craving). These three drive addiction, violence, and all corruption.",mythology:"In almost every world religion, these three are identified as root causes of evil and human suffering. The Gita calls them gates to hell — not punishments but natural, inevitable consequences.",science:"Lust (dopamine hijacking), anger (amygdala dysregulation), greed (reward circuit addiction) all bypass the prefrontal cortex, making rational and ethical behavior neurologically impossible.",behavior:"Daily self-check: Am I acting from lust, anger, or greed right now? If yes — pause. Breathe deeply. Choose again consciously. This simple practice prevents most destructive life decisions.",insight:"LUST, ANGER, GREED — the three soul-destroyers! Master these three and you master your entire destiny. This is the most important self-management teaching ever given to humanity!"}
+  ]},
+  {num:17,name:"Shraddhatraya Vibhaga Yoga",skt:"श्रद्धात्रयविभाग योग",eng:"Yoga of Threefold Faith",count:28,desc:"Faith takes the shape of your dominant guna. You are literally what you believe. Food, sacrifice, austerity, and charity are classified by the three gunas — practical wisdom for every dimension of daily life.",shlokas:[
+    {id:"17.3",skt:"सत्त्वानुरूपा सर्वस्य श्रद्धा भवति भारत | श्रद्धामयोऽयं पुरुषो यो यच्छ्रद्धः स एव सः ||",rom:"Sattvānurūpā sarvasya śraddhā bhavati bhārata śraddhāmayo'yaṁ puruṣo yo yacchraddhaḥ sa eva saḥ",meaning:"O son of Bharata, according to one's existence under the various modes of nature, one evolves a particular kind of faith. The living being is said to be of a particular faith according to the modes acquired.",words:[{w:"सत्त्वानुरूपा",m:"according to one's nature/guna"},{w:"सर्वस्य",m:"of everyone"},{w:"श्रद्धा",m:"faith/deep conviction"},{w:"भवति",m:"arises/becomes"},{w:"श्रद्धामयः",m:"composed of/made of faith"},{w:"यः",m:"who"},{w:"यच्छ्रद्धः",m:"whatever is his faith"},{w:"स एव सः",m:"that he indeed is"}],psychology:"William James's Will to Believe and the modern placebo effect both confirm this: your deep beliefs create your neurological reality — literally shaping what you perceive and what becomes possible.",mythology:"Shraddha is different from mere belief — it is the deep conviction that shapes all of one's being. In the Vedic tradition, Shraddha powers all rituals and all relationships with the sacred.",science:"Epigenetics: beliefs and mental states affect gene expression directly. Placebo and nocebo effects show that faith — in healing or destruction — produces measurable physiological changes in the body.",behavior:"Examine your deepest beliefs: Is the universe fundamentally friendly or hostile? Are you worthy of love and success? Do your efforts matter? These convictions shape your entire life trajectory.",insight:"You ARE your deepest faith! Change your deepest beliefs — and you change your entire reality. The most powerful technology in existence is CONSCIOUS BELIEF!"}
+  ]},
+  {num:18,name:"Moksha Sanyasa Yoga",skt:"मोक्षसंन्यास योग",eng:"Yoga of Liberation Through Renunciation",count:78,desc:"The grand culmination! The highest secret: total surrender to God alone guarantees liberation from ALL sin and suffering. Arjuna's grief dissolves completely. He rises — transformed. The warrior of dharma stands ready!",shlokas:[
+    {id:"18.61",skt:"ईश्वरः सर्वभूतानां हृद्देशेऽर्जुन तिष्ठति | भ्रामयन्सर्वभूतानि यन्त्रारूढानि मायया ||",rom:"Īśvaraḥ sarvabhūtānāṁ hṛddeśe'rjuna tiṣṭhati bhrāmayansarvabhūtāni yantrārūḍhāni māyayā",meaning:"The Supreme Lord is situated in everyone's heart, O Arjuna, and is directing the wanderings of all living entities, who are seated as on a machine, made of the material energy.",words:[{w:"ईश्वरः",m:"the Supreme Lord"},{w:"सर्वभूतानाम्",m:"of all beings"},{w:"हृद्देशे",m:"in the region of the heart"},{w:"तिष्ठति",m:"resides/situated"},{w:"भ्रामयन्",m:"directing/guiding"},{w:"यन्त्रारूढानि",m:"seated on a machine"},{w:"मायया",m:"by divine illusion"}],psychology:"The Self as ultimate guide: the deepest level of the psyche — Jung's Self — directs the ego's wanderings, sending dreams, synchronicities, and crises to guide the soul toward wholeness.",mythology:"The body as chariot/machine with God as the driver — introduced at the very start and resolved here. God is the ultimate charioteer of all beings, not just Arjuna's physical chariot.",science:"The brain, immune system, and heart's electromagnetic field (100 times stronger than the brain's) — the body IS a sophisticated machine directed by an intelligence far beyond ordinary ego.",behavior:"When feeling lost or out of control: the ultimate intelligence is at the wheel of your life. Align with it through prayer, meditation, dharmic action, and trust. You are never truly alone.",insight:"GOD is the DRIVER of your life! You are not wandering aimlessly — the Divine intelligence guides every single step. Relax. Align. TRUST the Divine Driver completely!"},
+    {id:"18.65",skt:"मन्मना भव मद्भक्तो मद्याजी मां नमस्कुरु | मामेवैष्यसि सत्यं ते प्रतिजाने प्रियोऽसि मे ||",rom:"Manmanā bhava madbhakto madyājī māṁ namaskuru māmevaiṣyasi satyaṁ te pratijāne priyo'si me",meaning:"Always think of Me, become My devotee, worship Me and offer homage unto Me. Thus you will come to Me without fail. I promise you this because you are My very dear friend.",words:[{w:"मन्मनाः",m:"fix your mind on Me"},{w:"भव",m:"become"},{w:"मद्भक्तः",m:"My devotee"},{w:"मद्याजी",m:"My worshipper"},{w:"मामेव एष्यसि",m:"you will come to Me alone"},{w:"सत्यम्",m:"truly"},{w:"प्रतिजाने",m:"I promise"},{w:"प्रियः असि मे",m:"you are dear to Me"}],psychology:"The most intimate therapeutic relationship in world literature: God calls the human being his very dear friend and makes a personal promise — unconditional regard and total reliable commitment.",mythology:"Pratijane — I promise — is the most sacred word in dharmic culture. A divine promise is cosmically binding without exception. This is Krishna's personal eternal vow to every devoted soul.",science:"Secure attachment: knowing a reliable, loving relationship is always available reorganizes the nervous system from threat-mode to growth-mode. God IS the ultimate secure attachment figure.",behavior:"Hear these words as spoken personally to you right now: You are My very dear friend. Come to Me. I promise you will not be disappointed. Let this divine friendship anchor you in every storm.",insight:"GOD calls you His DEAR FRIEND and makes a personal promise of liberation! You are not alone. You are not unloved. You are the BELOVED of the INFINITE!"},
+    {id:"18.66",skt:"सर्वधर्मान्परित्यज्य मामेकं शरणं व्रज | अहं त्वां सर्वपापेभ्यो मोक्षयिष्यामि मा शुचः ||",rom:"Sarvadharmānparityajya māmekaṁ śaraṇaṁ vraja ahaṁ tvāṁ sarvapāpebhyo mokṣayiṣyāmi mā śucaḥ",meaning:"Abandon all varieties of religion and just surrender unto Me alone. I shall deliver you from all sinful reactions. Do not fear.",words:[{w:"सर्वधर्मान्",m:"all kinds of dharma/duties"},{w:"परित्यज्य",m:"abandoning/renouncing"},{w:"माम् एकम्",m:"unto Me alone"},{w:"शरणम् व्रज",m:"take refuge/surrender"},{w:"अहम्",m:"I"},{w:"त्वाम्",m:"you"},{w:"सर्वपापेभ्यः",m:"from all sins"},{w:"मोक्षयिष्यामि",m:"I shall deliver/liberate"},{w:"मा शुचः",m:"do not grieve/fear not"}],psychology:"The Charama Shloka — total surrender dissolves the anxiety of self-management completely. The ego's crushing burden of being the sole author of its salvation is finally and fully released.",mythology:"Called the Charama Shloka — the final and absolutely highest verse. It overrides all other teachings with one supreme directive: surrender everything to the Divine alone. Just this one thing.",science:"System surrender: when individual agents surrender to the larger system's intelligence, emergent properties arise that are completely impossible for the individual agent acting alone.",behavior:"At least once daily — practice total surrender: I release all my fears, all my sins, all my confusion, all my pride to You alone. I am Yours completely. Notice the profound peace that follows.",insight:"THE GREATEST VERSE OF THE ENTIRE GITA! Surrender EVERYTHING to God — He PERSONALLY guarantees your liberation from ALL sins. DO NOT FEAR — this is the absolute final divine promise!"},
+    {id:"18.73",skt:"नष्टो मोहः स्मृतिर्लब्धा त्वत्प्रसादान्मयाच्युत | स्थितोऽस्मि गतसन्देहः करिष्ये वचनं तव ||",rom:"Naṣṭo mohaḥ smṛtirlabdhā tvatprasādānmayācyuta sthito'smi gatasandehaḥ kariṣye vacanaṁ tava",meaning:"O Achyuta, my illusion is now gone. I have regained my memory by Your grace. I am now firm and free from doubt and am prepared to act according to Your instructions.",words:[{w:"नष्टः",m:"destroyed/gone"},{w:"मोहः",m:"illusion/delusion"},{w:"स्मृतिः",m:"memory/clarity"},{w:"लब्धा",m:"regained/obtained"},{w:"त्वत्प्रसादात्",m:"by Your grace"},{w:"गतसन्देहः",m:"free from all doubt"},{w:"करिष्ये",m:"I shall do"},{w:"वचनम् तव",m:"Your instructions"}],psychology:"The complete therapeutic resolution — the catharsis. Arjuna's transformation is total. From paralysis to purposeful action; from confusion to crystal clarity; from grief to divine grace.",mythology:"Arjuna's transformation IS the Gita's ultimate message for all of humanity: the Gita WORKS! It transforms the defeated warrior into the invincible hero. This was said to all Arjunas for all time.",science:"Conversation that challenges core beliefs and provides a coherent, loving alternative framework literally changes neural architecture permanently. This is the most complete growth experience in history.",behavior:"When you finish reading the Gita, say what Arjuna said: My illusion is gone. My clarity is restored. I am firm and free from doubt. I know what to do. Let me ACT! This is the Gita's goal.",insight:"ARJUNA'S TRANSFORMATION is YOUR transformation! From confusion to clarity, from grief to grace, from paralysis to power. READ the Gita — and RISE like Arjuna EVERY SINGLE DAY!"}
+  ]}
+];
+
+// ── STATE ──
+let curChap=0,curShloka=0,curTab='meaning',voiceGender='male',speechRate=1.0,speaking=false,wordInterval=null;
+window._donAmt='51';
+
+// ── VOICE ──
+function setVoice(g){voiceGender=g;document.getElementById('vMale').classList.toggle('active',g==='male');document.getElementById('vFemale').classList.toggle('active',g==='female')}
+function setSpeed(v){speechRate=parseFloat(v)}
+
+// ── DONATION ──
+function selAmt(btn,amt){
+  document.querySelectorAll('.amt-btn').forEach(b=>b.classList.remove('sel'));btn.classList.add('sel');
+  const ci=document.getElementById('customAmt');ci.style.display=amt==='custom'?'block':'none';
+  if(amt!=='custom')window._donAmt=amt;
+}
+function getAmt(){const ca=document.getElementById('customAmt');return(ca.style.display==='block'&&ca.value)?ca.value:window._donAmt||'51'}
+
+function payPayPal(){
+  const amt=getAmt();
+  window.open(`https://paypal.me/MUP587/${amt}`,'_blank');
+  showThanks(amt);
+}
+function showUPI(){const b=document.getElementById('upiBox');b.style.display=b.style.display==='block'?'none':'block'}
+function copyUPI(){
+  const txt='8247630459@axl';
+  if(navigator.clipboard){
+    navigator.clipboard.writeText(txt).then(()=>alert('✅ UPI ID Copied!\n\n8247630459@axl\n\nNow open GPay / PhonePe / Paytm / BHIM\nSend Money → Paste UPI ID\nAccount: Muppuri Venkata Suresh'));
+  } else {
+    const t=document.createElement('textarea');t.value=txt;document.body.appendChild(t);t.select();document.execCommand('copy');document.body.removeChild(t);
+    alert('✅ UPI ID Copied: 8247630459@axl');
+  }
+}
+function payRazorpay(){
+  const amt=getAmt();
+  alert('💙 Razorpay Payment\nAmount: ₹'+amt+'\n\nTo enable live Razorpay, add your Key ID (rzp_live_...) in the HTML.\n\nFor now please use:\n📱 UPI: 8247630459@axl\n💙 PayPal: paypal.me/MUP587\n\nAccount: Muppuri Venkata Suresh\nEmail: muppurivenkatasuresh@gmail.com');
+}
+function showThanks(amt){
+  document.getElementById('donAmt').textContent=amt;
+  const t=document.getElementById('thanksMsg');t.style.display='block';
+  setTimeout(()=>t.style.display='none',7000);
+}
+
+// ── SPEECH ──
+function stopSpeech(){if(window.speechSynthesis)window.speechSynthesis.cancel();if(wordInterval){clearInterval(wordInterval);wordInterval=null}speaking=false;const pb=document.getElementById('playBtn');if(pb)pb.textContent='▶'}
+function speakText(text){
+  if(!window.speechSynthesis)return;
+  stopSpeech();
+  const u=new SpeechSynthesisUtterance(text);
+  u.rate=speechRate;u.pitch=voiceGender==='female'?1.4:0.85;
+  const voices=window.speechSynthesis.getVoices();
+  const langVal=document.getElementById('langSelect').value;
+  let filtered=voices.filter(v=>v.lang.startsWith(langVal));
+  if(!filtered.length)filtered=voices.filter(v=>v.lang.startsWith('en'));
+  if(voiceGender==='female'){
+    const f=filtered.find(v=>/female|woman|fiona|samantha|karen|moira|tessa|victoria|zira|ava|allison|nicky/i.test(v.name));
+    u.voice=f||filtered[0]||null;
+  } else {
+    const m=filtered.find(v=>/male|man|alex|daniel|jorge|lee|luca|ralph|reed|thomas|diego|rishi/i.test(v.name));
+    u.voice=m||filtered.find(v=>!(/female|woman/i.test(v.name)))||filtered[0]||null;
+  }
+  u.onend=()=>{speaking=false;const pb=document.getElementById('playBtn');if(pb)pb.textContent='▶'};
+  window.speechSynthesis.speak(u);speaking=true;
+  const pb=document.getElementById('playBtn');if(pb)pb.textContent='⏸';
+}
+function animateWords(sh){
+  const disp=document.getElementById('wordDisplay');if(!disp)return;
+  const words=sh.skt.replace(/[|]+/g,' ').trim().split(/\s+/).filter(w=>w.length>1);
+  disp.innerHTML=words.map((w,i)=>`<span class="wh" id="wh${i}" onclick="showWM(${i},'${w.replace(/'/g,"\\'")}',this)">${w}</span>`).join(' ');
+  let idx=0;
+  wordInterval=setInterval(()=>{
+    document.querySelectorAll('.wh').forEach(s=>s.classList.remove('active'));
+    const el=document.getElementById('wh'+idx);if(el)el.classList.add('active');
+    idx++;if(idx>=words.length){clearInterval(wordInterval);wordInterval=null}
+  },Math.max(300,900/speechRate));
+}
+function showWM(idx,word,el){
+  const popup=document.getElementById('wordPopup');if(!popup)return;
+  const sh=CHAPTERS[curChap].shlokas[curShloka];
+  const wArr=sh.words||[];
+  const match=wArr.find(x=>word.startsWith(x.w.split(' ')[0])||x.w.startsWith(word.split(/[ंःािीुूृेैोौ]/)[0]));
+  popup.style.display='block';
+  popup.textContent=match?`${match.w} = "${match.m}"`:`${word} — tap other words for meanings`;
+  setTimeout(()=>popup.style.display='none',3000);
+}
+function playShloka(ci,si){const sh=CHAPTERS[ci].shlokas[si];animateWords(sh);speakText(sh.rom+'. '+sh.meaning)}
+function togglePlay(ci,si){if(speaking){stopSpeech();return}playShloka(ci,si)}
+function speakLang(){const l=document.getElementById('langSelect');const n=l.options[l.selectedIndex].text;speakText('Bhagavad Gita. '+n+'. Chapter '+CHAPTERS[curChap].num+'. '+CHAPTERS[curChap].shlokas[curShloka].meaning)}
+function changeLang(){stopSpeech()}
+
+// ── TABS ──
+function getTabHTML(sh,tab){
+  if(tab==='words'){
+    if(!sh.words||!sh.words.length)return '<em style="color:#a08060">Word meanings shown in the highlighted display above when playing.</em>';
+    return '<div class="word-grid">'+sh.words.map(w=>`<div class="wcard"><span class="w">${w.w}</span><span class="m">${w.m}</span></div>`).join('')+'</div>';
+  }
+  const m={meaning:`<div>${sh.meaning}</div><div class="insight-box">${sh.insight}</div>`,psychology:`<div>${sh.psychology}</div>`,mythology:`<div>${sh.mythology}</div>`,science:`<div>${sh.science}</div>`,behavior:`<div>${sh.behavior}</div>`};
+  return m[tab]||'';
+}
+function switchTab(tab,ci,si){
+  curTab=tab;
+  const el=document.getElementById(`tc_${ci}_${si}`);if(el)el.innerHTML=getTabHTML(CHAPTERS[ci].shlokas[si],tab);
+  document.querySelectorAll(`.tabs_${ci}_${si} .tab`).forEach(t=>t.classList.toggle('active',t.dataset.tab===tab));
+}
+
+// ── NAV ──
+function buildNav(){
+  const g=document.getElementById('chGrid');g.innerHTML='';
+  CHAPTERS.forEach((ch,i)=>{
+    const b=document.createElement('button');b.className='cb'+(i===0?' active':'');
+    b.textContent=i+1;b.title=`Ch.${i+1}: ${ch.name}`;b.onclick=()=>loadChap(i);
+    g.appendChild(b);
+  });
+}
+
+function loadChap(idx){
+  curChap=idx;curShloka=0;stopSpeech();
+  document.querySelectorAll('.cb').forEach((b,i)=>b.classList.toggle('active',i===idx));
+  document.getElementById('progBar').style.width=((idx+1)/18*100).toFixed(1)+'%';
+  const ch=CHAPTERS[idx];
+  let html=`<div class="ch-header">
+    <div class="ch-num-lbl">Chapter ${ch.num} of 18 &nbsp;·&nbsp; ${ch.count} Shlokas</div>
+    <div class="ch-skt-name">${ch.skt}</div>
+    <div class="ch-eng-name">${ch.name} — ${ch.eng}</div>
+    <div class="ch-description">${ch.desc}</div>
+  </div>
+  <div class="player">
+    <div class="player-top">
+      <span class="player-id" id="playerId">Now Playing: ${ch.shlokas[0].id}</span>
+      <div class="player-btns">
+        <button class="pbtn" onclick="prevShloka()" title="Previous Shloka">&#9664;</button>
+        <button class="pbtn main-play" id="playBtn" onclick="togglePlay(${idx},0)">&#9654;</button>
+        <button class="pbtn" onclick="nextShloka()" title="Next Shloka">&#9654;&#9654;</button>
+      </div>
+    </div>
+    <div class="word-display" id="wordDisplay">Tap ▶ to hear the shloka with live Sanskrit word-by-word highlighting</div>
+    <div class="word-popup" id="wordPopup"></div>
+  </div>`;
+
+  ch.shlokas.forEach((sh,si)=>{
+    html+=`<div class="shloka-card ${si===0?'active-s':''}" id="sc_${idx}_${si}">
+      <div class="sk-num">Shloka ${sh.id}</div>
+      <div class="sk-skt">${sh.skt}</div>
+      <div class="sk-rom">${sh.rom}</div>
+      <div class="tabs tabs_${idx}_${si}">
+        <button class="tab ${curTab==='words'?'active':''}" data-tab="words" onclick="switchTab('words',${idx},${si})">Word by Word</button>
+        <button class="tab ${curTab==='meaning'?'active':''}" data-tab="meaning" onclick="switchTab('meaning',${idx},${si})">Meaning</button>
+        <button class="tab ${curTab==='psychology'?'active':''}" data-tab="psychology" onclick="switchTab('psychology',${idx},${si})">Psychology</button>
+        <button class="tab ${curTab==='mythology'?'active':''}" data-tab="mythology" onclick="switchTab('mythology',${idx},${si})">Mythology</button>
+        <button class="tab ${curTab==='science'?'active':''}" data-tab="science" onclick="switchTab('science',${idx},${si})">Science</button>
+        <button class="tab ${curTab==='behavior'?'active':''}" data-tab="behavior" onclick="switchTab('behavior',${idx},${si})">Human Behavior</button>
+      </div>
+      <div class="tab-content" id="tc_${idx}_${si}">${getTabHTML(sh,curTab)}</div>
+    </div>`;
+  });
+
+  html+=`<div class="nav-arrows">`;
+  if(idx>0) html+=`<button class="narr" onclick="loadChap(${idx-1})">&#8592; Chapter ${idx}</button>`;
+  if(idx<17) html+=`<button class="narr" onclick="loadChap(${idx+1})">Chapter ${idx+2} &#8594;</button>`;
+  html+=`</div>`;
+
+  document.getElementById('chapDisplay').innerHTML=html;
+  document.getElementById('chapDisplay').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function prevShloka(){if(curShloka>0){curShloka--;updatePlayer()}}
+function nextShloka(){if(curShloka<CHAPTERS[curChap].shlokas.length-1){curShloka++;updatePlayer()}}
+function updatePlayer(){
+  const sh=CHAPTERS[curChap].shlokas[curShloka];
+  const pid=document.getElementById('playerId');if(pid)pid.textContent='Now Playing: '+sh.id;
+  document.querySelectorAll('.shloka-card').forEach((c,i)=>c.classList.toggle('active-s',i===curShloka));
+  const sc=document.getElementById(`sc_${curChap}_${curShloka}`);if(sc)sc.scrollIntoView({behavior:'smooth',block:'center'});
+  stopSpeech();
+  const pb=document.getElementById('playBtn');if(pb)pb.onclick=()=>togglePlay(curChap,curShloka);
+}
+
+if(window.speechSynthesis) window.speechSynthesis.onvoiceschanged=()=>{};
+buildNav();
+loadChap(0);
+</script>
+</body>
+</html>
